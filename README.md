@@ -84,6 +84,7 @@ O projeto funciona **100% offline** — todas as fontes e dependências são loc
 
 - [Prefeitura de Francisco Beltrão](https://franciscobeltrao.pr.gov.br)
 - [Diário do Sudoeste](https://diariodosudoeste.com.br)
+- [🔗 Ver online](https://endriu-presmini.github.io/reciclagem-eletronica/)
 - ONU Meio Ambiente
 
 ---
