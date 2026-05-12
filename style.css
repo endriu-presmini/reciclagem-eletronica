@@ -1,0 +1,967 @@
+/* =========================================
+   STYLE.CSS — E-Lixo Landing Page
+   Paleta: verde escuro + bege + laranja alerta
+   Fonte: Syne (títulos) + DM Sans (texto)
+   ========================================= */
+
+/* =========================================
+   FONTES LOCAIS (sem necessidade de internet)
+   ========================================= */
+@font-face {
+  font-family: 'Syne';
+  src: url('fonts/syne-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Syne';
+  src: url('fonts/syne-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/dmsans-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/dmsans-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================
+   Reset & Base
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --verde-escuro: #1a3c2e;
+  --verde-medio: #2d6a4f;
+  --verde-claro: #52b788;
+  --laranja: #e76f00;
+  --bege: #f5f0e8;
+  --branco: #ffffff;
+  --cinza-texto: #444;
+  --sombra: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bege);
+  color: var(--cinza-texto);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Syne', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- Animação de entrada (fade-in ao rolar) ---- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+.hero {
+  position: relative;
+  background-color: var(--verde-escuro);
+  color: var(--branco);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 80px 24px 60px;
+}
+
+/* Texto gigante de fundo decorativo */
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(80px, 20vw, 260px);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -4px;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-tag {
+  display: inline-block;
+  background-color: var(--laranja);
+  color: var(--branco);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-content h1 {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: var(--branco);
+}
+
+.hero-content h1 em {
+  font-style: normal;
+  color: var(--laranja);
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.72);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.btn-hero {
+  display: inline-block;
+  background-color: var(--laranja);
+  color: var(--branco);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 32px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-hero:hover {
+  background-color: #c75e00;
+  transform: translateY(-2px);
+}
+
+/* Badge flutuante */
+.hero-badge {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background-color: var(--laranja);
+  color: var(--branco);
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-align: center;
+  max-width: 140px;
+  box-shadow: var(--sombra);
+}
+
+.hero-badge span {
+  font-family: 'Syne', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  display: block;
+}
+
+.hero-badge p {
+  font-size: 12px;
+  line-height: 1.3;
+  margin-top: 6px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* =========================================
+   SEÇÕES GERAIS
+   ========================================= */
+.section {
+  padding: 100px 0;
+}
+
+.section-dark {
+  background-color: var(--verde-escuro);
+  color: var(--branco);
+}
+
+.section-green {
+  background-color: var(--verde-medio);
+  color: var(--branco);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--laranja);
+  margin-bottom: 12px;
+  border: 1px solid var(--laranja);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.section-dark .section-tag,
+.section-green .section-tag {
+  color: var(--verde-claro);
+  border-color: var(--verde-claro);
+}
+
+.section-header h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  color: var(--verde-escuro);
+}
+
+.section-dark .section-header h2,
+.section-green .section-header h2 {
+  color: var(--branco);
+}
+
+.section-header p {
+  font-size: 17px;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* =========================================
+   CARDS — O QUE É E-LIXO
+   ========================================= */
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 28px 24px;
+  width: calc(25% - 20px);
+  min-width: 220px;
+  box-shadow: var(--sombra);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 4px solid var(--verde-claro);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+}
+
+.card-negative {
+  border-top-color: #ccc;
+  opacity: 0.75;
+}
+
+.card-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--verde-escuro);
+}
+
+.card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.card-badge {
+  display: inline-block;
+  background-color: #e8f5ee;
+  color: var(--verde-medio);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.card-badge-no {
+  background-color: #f5f5f5;
+  color: #888;
+}
+
+/* =========================================
+   STATS — IMPACTO
+   ========================================= */
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.stat-card {
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 40px 32px;
+  text-align: center;
+  width: calc(25% - 24px);
+  min-width: 200px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.stat-card:hover {
+  background-color: rgba(255,255,255,0.10);
+  transform: translateY(-4px);
+}
+
+.stat-number {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 800;
+  color: var(--verde-claro);
+  line-height: 1;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.stat-unit {
+  display: block;
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  margin: 6px 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-card p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+
+/* =========================================
+   CALCULADORA
+   ========================================= */
+.calc-wrapper {
+  background: var(--branco);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: var(--sombra);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.calc-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.calc-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: var(--bege);
+  border-radius: 12px;
+  gap: 12px;
+}
+
+.calc-item label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--verde-escuro);
+  flex: 1;
+}
+
+.calc-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid var(--verde-medio);
+  background: transparent;
+  color: var(--verde-medio);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-btn:hover {
+  background-color: var(--verde-medio);
+  color: var(--branco);
+}
+
+.qty-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+  min-width: 28px;
+  text-align: center;
+}
+
+.btn-calcular {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--laranja);
+  color: var(--branco);
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-calcular:hover {
+  background-color: #c75e00;
+  transform: translateY(-2px);
+}
+
+.calc-resultado {
+  background-color: #fff8e6;
+  border-left: 5px solid var(--laranja);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.calc-resultado h3 {
+  font-size: 18px;
+  color: var(--laranja);
+  margin-bottom: 10px;
+}
+
+#resultado-texto {
+  font-size: 16px;
+  color: var(--cinza-texto);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.resultado-cta {
+  font-weight: 600;
+  color: var(--verde-medio);
+  font-size: 15px;
+}
+
+/* =========================================
+   PASSOS — O QUE FAZER
+   ========================================= */
+.steps-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.step {
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 36px 28px;
+  max-width: 260px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.step:hover {
+  background-color: rgba(255,255,255,0.16);
+  transform: translateY(-4px);
+}
+
+.step-number {
+  font-family: 'Syne', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--verde-claro);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.step h3 {
+  font-size: 20px;
+  color: var(--branco);
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.step-arrow {
+  font-size: 32px;
+  color: var(--verde-claro);
+  font-weight: 700;
+}
+
+/* =========================================
+   PONTOS DE COLETA
+   ========================================= */
+.pontos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.ponto-card {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 32px 24px;
+  width: calc(25% - 20px);
+  min-width: 220px;
+  box-shadow: var(--sombra);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.ponto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+}
+
+.ponto-icon {
+  font-size: 40px;
+  margin-bottom: 14px;
+}
+
+.ponto-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+  margin-bottom: 8px;
+}
+
+.ponto-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.ponto-horario {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--verde-medio);
+  font-weight: 600;
+  background-color: #e8f5ee;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.contato-box {
+  background-color: var(--verde-escuro);
+  color: var(--branco);
+  border-radius: 20px;
+  padding: 36px 40px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contato-box p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: rgba(255,255,255,0.85);
+}
+
+.btn-site {
+  display: inline-block;
+  background-color: var(--verde-claro);
+  color: var(--verde-escuro);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-site:hover {
+  background-color: #3fa070;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
+.footer {
+  background-color: var(--verde-escuro);
+  color: rgba(255,255,255,0.7);
+  padding: 60px 0 30px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--branco);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-info p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.footer-autores p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footer-unipar {
+  display: inline-block;
+  margin-top: 8px;
+  background-color: var(--laranja);
+  color: var(--branco);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 24px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* =========================================
+   VANTAGENS DA RECICLAGEM
+   ========================================= */
+.vantagens-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.vantagem-card {
+  background: var(--branco);
+  border-radius: 20px;
+  padding: 36px 28px;
+  width: calc(33% - 24px);
+  min-width: 260px;
+  box-shadow: var(--sombra);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vantagem-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+}
+
+.vantagem-icone {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.vantagem-verde   { background-color: #e8f5ee; }
+.vantagem-laranja { background-color: #fff0e0; }
+.vantagem-azul    { background-color: #e8f0ff; }
+
+.vantagem-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+  margin-bottom: 14px;
+}
+
+.vantagem-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vantagem-card ul li {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  padding-left: 18px;
+  position: relative;
+}
+
+.vantagem-card ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--verde-claro);
+  font-weight: 700;
+}
+
+/* =========================================
+   TIMELINE — COMO OCORRE A RECICLAGEM
+   ========================================= */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 48px;
+  position: relative;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* Linha vertical entre os itens */
+.timeline-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 56px;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.12);
+}
+
+.timeline-icone {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  background-color: rgba(255,255,255,0.08);
+  border: 2px solid var(--verde-claro);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.timeline-linha {
+  display: none;
+}
+
+.timeline-conteudo {
+  padding-top: 8px;
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.timeline-num {
+  display: inline-block;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--verde-claro);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.timeline-conteudo h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--branco);
+  margin-bottom: 10px;
+}
+
+.timeline-conteudo p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.timeline-detalhe {
+  display: inline-block;
+  background-color: rgba(255,255,255,0.07);
+  border-left: 3px solid var(--laranja);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 900px) {
+  .card,
+  .stat-card,
+  .ponto-card,
+  .vantagem-card {
+    width: calc(50% - 20px);
+  }
+
+  .step-arrow {
+    display: none;
+  }
+
+  .hero-badge {
+    position: static;
+    margin: 32px auto 0;
+    max-width: 160px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 60px;
+  }
+
+  .timeline-item {
+    gap: 14px;
+  }
+
+  .timeline-icone {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+
+  .timeline-item:not(:last-child)::after {
+    left: 19px;
+    top: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card,
+  .stat-card,
+  .ponto-card,
+  .vantagem-card {
+    width: 100%;
+  }
+
+  .calc-wrapper {
+    padding: 28px 20px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .timeline-linha {
+    display: none;
+  }
+
+  .timeline-item:not(:last-child)::after {
+    display: none;
+  }
+}
